@@ -4,9 +4,8 @@
 	<title>LED gauge</title>
 	<style type="text/css">
 	.gauge {
-		width: 400px;
-		height: 400px;
-		border: 1px solid blue;
+		width: 100px;
+		height: 300px;		
 	}
 	</style>
 	<script type="text/javascript" src="raphael-min.js"></script>
@@ -16,6 +15,30 @@
 
 	<script type="text/javascript" src="ledgauge.js"></script>
 	<script>
-
+	var led = Raphael('gauge', 100, 300).ledGauge({
+		div: document.getElementById('gauge'),
+		min: 0,
+		max: 100,
+		title: 'CPU Usage',
+		unit: '%',
+		margin: {
+			left: '30px',
+			right: '30px',
+			top: '40px',
+			bottom: '40px'
+		},
+		thresholds: {
+			values: [50, 80, 100],
+			colors: ['#00ff00', '#f0f000', '#ff0000']
+		}
+	});
+	function getRandomInteger(min, max) {
+		return Math.floor(
+			Math.random() * (max - min + 1)
+		) + min;
+	}
+	setInterval(function() {
+		led.setTo(getRandomInteger(0, 100));
+	}, 2000);	
 	</script>
 </body>
