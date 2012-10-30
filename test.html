@@ -4,32 +4,60 @@
 	<title>LED gauge</title>
 	<style type="text/css">
 	.gauge {
-		width: 100px;
-		height: 300px;		
+		width: 120px;
+		height: 520px;	
+		background-color: #f1f1f1;	
+		border: 1px solid #b6b5b5;
+		float: left;
+	}
+	.gaugeh {
+		width: 520px;
+		height: 120px;
+		background-color: #f1f1f1;
+		border: 1px solid #b6b5b5;
+		float: left;		
 	}
 	</style>
 	<script type="text/javascript" src="raphael-min.js"></script>
 </head>
 <body>
 	<div id="gauge" class="gauge"></div>
-
+	<div id="gaugeh" class="gaugeh"></div>
 	<script type="text/javascript" src="ledgauge.js"></script>
 	<script>
-	var led = Raphael('gauge', 100, 300).ledGauge({
+	var led = Raphael('gauge', 120, 520).ledGauge({
 		div: document.getElementById('gauge'),
 		min: 0,
 		max: 100,
-		title: 'CPU Usage',
+		title: 'CPU Usage',		
 		unit: '%',
 		direction: 0,
 		margin: {
 			left: '30px',
 			right: '30px',
-			top: '40px',
-			bottom: '40px'
+			top: '60px',
+			bottom: '30px'
 		},
 		thresholds: {
-			values: [50, 80, 100],
+			values: [50, 90, 100],
+			colors: ['#00ff00', '#f0f000', '#ff0000']
+		}
+	});
+	var mem = Raphael('gaugeh', 520, 120).ledGauge({
+		div: document.getElementById('gaugeh'),
+		min: 0,
+		max: 100,
+		title: 'Memory Usage',		
+		unit: '%',
+		direction: 1,
+		margin: {
+			left: '30px',
+			right: '30px',
+			top: '60px',
+			bottom: '30px'
+		},
+		thresholds: {
+			values: [50, 90, 100],
 			colors: ['#00ff00', '#f0f000', '#ff0000']
 		}
 	});
@@ -40,6 +68,7 @@
 	}
 	setInterval(function() {
 		led.setTo(getRandomInteger(0, 100));
-	}, 2000);	
+		mem.setTo(getRandomInteger(0, 100));
+	}, 3000);	
 	</script>
 </body>
