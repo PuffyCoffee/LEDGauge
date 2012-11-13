@@ -40,3 +40,5 @@ Options
 * thresholds: 
 	* values: [50, 80, 100] = [0, 50], [50, 80], [80, 100]
 	* colors: color array
+
+![Gauge](https://raw.github.com/pengz/LEDGauge/master/screenshot/gauge.png "LED gauge")
