@@ -42,3 +42,6 @@ Options
 	* colors: color array
 
 ![Gauge](https://raw.github.com/PuffyCoffee/LEDGauge/master/screenshot/gauge.png "LED gauge")
+
+-------
+Peng Zhang 2012
