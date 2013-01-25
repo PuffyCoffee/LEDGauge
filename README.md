@@ -5,7 +5,7 @@
 Example
 -------
 
-```
+```javascript
 var led = Raphael('gauge', 100, 300).ledGauge({
 	div: document.getElementById('gauge'),
 	min: 0,
